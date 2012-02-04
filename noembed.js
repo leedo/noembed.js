@@ -143,10 +143,6 @@ var noembed = {
     }
   },
 
-  new_callback_name : function() {
-    return + noembed.callback_counter;
-  },
-
   add_jsonp_callback : function(callback) {
     var name = "noembed_callback_" + noembed.callback_counter++;
 
