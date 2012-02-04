@@ -34,7 +34,7 @@ var noembed = {
   },
 
   setup_embeddable : function(elem) {
-    var toggle = document.createElement("span");
+    var toggle = document.createElement("a");
     toggle.className = "noembed-toggle";
     toggle.href = elem.href;
     toggle.innerHTML = "embed";
@@ -60,7 +60,7 @@ var noembed = {
       return;
     }
 
-    noembed.json_request('https://noembed.com/embed?url='+escape(url), function(data) {
+    noembed.json_request('//noembed.com/embed?url='+escape(url), function(data) {
       if (!data || !data['html']) {
         elem.parentNode.removeChild(elem);
         return;
@@ -107,7 +107,7 @@ var noembed = {
 
   get_patterns : function(callback) {
     noembed.patterns = []; // reset
-    noembed.json_request('https://noembed.com/providers', function(data) {
+    noembed.json_request('//noembed.com/providers', function(data) {
       var length = data.length;
       for (var i=0; i < length; i++) {
         var patterns = data[i]['patterns'];
